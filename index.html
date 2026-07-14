@@ -173,6 +173,26 @@ rect.dtip-hit{fill:transparent;cursor:crosshair}
 .b4 p{font-size:13.5px;line-height:1.55;color:var(--muted);margin-bottom:14px}
 .b4 p b{color:var(--ink);font-weight:600}
 
+/* data plate (05): prediction-registry download + meta */
+.c-data{grid-column:span 12}
+.datawrap{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:0 44px}
+.datalede p{font-size:13.5px;line-height:1.55;color:var(--muted);margin-bottom:16px}
+.datalede p b{color:var(--ink);font-weight:600}
+.dlrow{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.dl{display:flex;flex-direction:column;gap:3px;text-decoration:none;color:var(--ink);border:1.5px solid var(--ink);padding:12px 16px;min-width:230px;transition:background .15s,color .15s}
+.dl:hover{background:var(--acc);color:#fff}
+.dl:hover .dl-k,.dl:hover .dl-m{color:rgba(255,255,255,.82)}
+.dl:focus-visible{outline:1.5px solid var(--acc);outline-offset:2px}
+.dl-k{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.dl-t{font-family:var(--disp);font-weight:800;font-size:18px;letter-spacing:-.01em}
+.dl-m{font-family:var(--mono);font-size:9px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+.dl-off{display:none}
+.dl.dl-empty{pointer-events:none;opacity:.5}
+.dl.dl-empty:hover{background:none;color:inherit}
+.datajson{font-family:var(--mono);font-size:10px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);line-height:1.6}
+.datajson a{color:var(--acc);font-weight:700;text-decoration:none;border-bottom:1px solid currentColor}
+.datameta .tb{border:1px solid var(--grey)}
+
 /* ground footer */
 .gfoot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:4px 0 10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 .gfoot a{text-decoration:none}
@@ -202,6 +222,14 @@ rect.dtip-hit{fill:transparent;cursor:crosshair}
   svg.demand .dax-obs{font-size:15px}
   svg.demand polyline{stroke-width:3.4}
   svg.spark{width:64px;height:20px}
+  /* data plate: stack, and disable the downloads (files are desktop-only) */
+  .datawrap{grid-template-columns:1fr;gap:0}
+  .datameta{margin-top:16px}
+  .dlrow{flex-direction:column}
+  .dl{width:100%;min-width:0;pointer-events:none;opacity:.55}
+  .dl:hover{background:none;color:inherit}
+  .dl .dl-m{display:none}
+  .dl .dl-off{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 }
 </style>
 </head>
@@ -232,6 +260,8 @@ rect.dtip-hit{fill:transparent;cursor:crosshair}
         </div>
       </div>
     </div>
+
+    <div class="plate mod" id="data"><div class="cell c-data bot last"><div class="chead"><b>05</b>Data &middot; Prediction registry</div><div class="datawrap"><div class="datalede"><p>Every range on this page is logged <b>before</b> the outcome exists, then scored as the target months close. The registry is the raw record: one row per market, horizon and edition, with the point, the 50% and 80% bands, the anchor it hung from, and the confidence flags. Nothing is revised after the fact &mdash; so a track record can only accumulate, not be edited into existence.</p><div class="dlrow"><a class="dl" href="/performance/predictions.csv" download><span class="dl-k">&darr; CSV</span><span class="dl-t">Predictions</span><span class="dl-m">137 rows &middot; 33 markets &middot; preregistered ranges</span><span class="dl-off">Download on desktop</span></a><a class="dl dl-empty" href="/performance/scored_predictions.csv" download><span class="dl-k">&darr; CSV</span><span class="dl-t">Scored outcomes</span><span class="dl-m">Available once the first target months close</span><span class="dl-off">Download on desktop</span></a></div><p class="datajson">Prefer JSON? <a href="/performance/predictions.json">predictions.json</a> &middot; static files, no API, refreshed each edition.</p></div><div class="datameta"><div class="tb"><div>Model</div><div>rw_v1 &middot; constant-drift RW</div><div>Editions</div><div>1 &middot; latest 07/2026</div><div>Anchors</div><div>FEB 2026&ndash;MAR 2026</div><div>Targets</div><div>MAR 2026&ndash;JUL 2026</div><div>Horizons</div><div>1&ndash;5 months</div><div>Logged</div><div>14 JUL 2026</div></div></div></div></div></div>
   </main>
 </div>
 
