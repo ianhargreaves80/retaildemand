@@ -1,0 +1,12 @@
+{
+  "name": "Retail Demand, Europe",
+  "short_name": "Retail Demand",
+  "description": "A monthly data sheet for European retail and FMCG: a calibrated range for retail demand, not a forecast, plus consumer confidence, financial headroom and category price pressure per market.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#e7e7e3",
+  "theme_color": "#e7e7e3",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
