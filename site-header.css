@@ -1,0 +1,46 @@
+/* ============================================================
+   Retail Demand, Europe — shared site header (topbar + indexstrip)
+   Same shape and location as the ianhargreaves.dev header (wordmark +
+   numbered nav cells over a mono strip), restyled in the Plate vocabulary
+   so the two sites read as siblings, not twins: white plate bar on the
+   concrete ground, ink rules, Inter Tight wordmark, ultramarine accent
+   (the main site uses paper, Archivo Expanded and red).
+   The markup fragment lives in generator/partials/site-header.html and is
+   injected at build time (generator/partials/inject_header.R). Every page
+   links this file; tokens are declared here so future pages can use the
+   header before defining their own.
+   ============================================================ */
+:root{
+  --ground:#e7e7e3; --plate:#ffffff; --ink:#131313; --muted:#6d6d68;
+  --grey:#c9c9c4; --acc:#2038c8; --red:#e8271e;
+  --mono:"Space Mono",ui-monospace,monospace;
+  --disp:"Inter Tight",sans-serif; --body:"Inter",sans-serif;
+}
+.topbar{background:var(--plate);border-bottom:1.5px solid var(--ink)}
+.topbar .tb-grid{max-width:1320px;margin:0 auto;padding:0 28px;display:flex;align-items:stretch;justify-content:space-between;gap:18px}
+.topbar .id{display:flex;align-items:center;padding:15px 0;font-family:var(--disp);font-weight:800;font-size:17px;letter-spacing:-.01em;text-transform:uppercase}
+.topbar .id a{color:inherit;text-decoration:none;transition:color .15s}
+.topbar .id a:hover{color:var(--acc)}
+.topbar .id b{color:var(--acc);margin-left:2px}
+.topbar nav{display:flex;align-items:stretch}
+.topbar nav a{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);text-decoration:none;padding:0 16px;display:flex;align-items:center;border-left:1px solid var(--grey);transition:background .15s,color .15s}
+.topbar nav a:last-child{border-right:1px solid var(--grey)}
+.topbar nav a:hover{background:var(--acc);color:#fff}
+.topbar nav a.active{color:var(--acc);font-weight:700}
+.topbar nav a.ext{color:var(--muted)}
+.topbar nav a.ext:hover{color:#fff}
+.topbar nav a .nn{font-style:normal}
+.indexstrip{border-bottom:1px solid var(--grey);font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.indexstrip .is-grid{max-width:1320px;margin:0 auto;padding:8px 28px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.indexstrip a{color:inherit;text-decoration:none}
+.indexstrip a:hover{color:var(--acc)}
+@media (max-width:900px){
+  .topbar .tb-grid{flex-wrap:wrap;padding:0 14px;gap:0}
+  .topbar .id{width:100%;padding:12px 0;font-size:15px}
+  .topbar nav{width:100%;flex-wrap:wrap}
+  .topbar nav a{flex:1 1 50%;justify-content:center;padding:11px 4px;font-size:9.5px;border-top:1px solid var(--grey);border-left:1px solid var(--grey)}
+  .topbar nav a:nth-child(odd){border-left:none}
+  .topbar nav a:last-child{border-right:none}
+  .topbar nav a .nn{display:none}
+  .indexstrip .is-grid{padding:8px 14px;flex-direction:column;gap:2px}
+}

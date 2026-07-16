@@ -46,6 +46,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site-header.css">
 <style>
 /* Retail Demand, Europe: standalone Swiss data sheet ("the Plate").
    Concrete ground, white plates with 1.5px ink borders, modules sharing
@@ -62,11 +63,6 @@ html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:var(--ground);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 a{color:inherit}
 .wrap{max-width:1320px;margin:0 auto;padding:0 28px}
-.gstrip{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:18px 0 12px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.gstrip b{color:var(--ink);font-weight:400}
-.gstrip a{text-decoration:none}
-.gstrip a:hover{color:var(--acc)}
-.gnav b{border-bottom:1px solid var(--ink);padding-bottom:1px}
 
 .plate{background:var(--plate);border:1.5px solid var(--ink);margin-bottom:22px}
 
@@ -269,7 +265,19 @@ rect.dtip-hit{fill:transparent;cursor:crosshair}
 </head>
 <body>
 
-<div class="wrap gstrip"><span><b><a href="https://ianhargreaves.dev/">Ian Hargreaves</a></b> · Market intelligence</span><nav class="gnav" aria-label="Pages"><b aria-current="page">Data sheet</b> · <a href="/factor-profile.html">Market matrix</a> · <a href="https://ianhargreaves.dev/" title="Decision science · Ian Hargreaves's personal project">ianhargreaves.dev &#8599;</a></nav><span>Retail demand, Europe · Edition 07/2026 · 35 markets · Eurostat · Monthly</span></div>
+<header class="topbar"><div class="tb-grid">
+  <div class="id"><a href="/">Retail Demand, Europe<b>.</b></a></div>
+  <nav aria-label="Site">
+    <a href="/" class="active" aria-current="page"><span class="nn">01&nbsp;/&nbsp;</span>Data sheet</a>
+    <a href="/factor-profile.html"><span class="nn">02&nbsp;/&nbsp;</span>Market matrix</a>
+    <a href="/comovement.html"><span class="nn">03&nbsp;/&nbsp;</span>Co-movement</a>
+    <a class="ext" href="https://ianhargreaves.dev/" title="Decision science · Ian Hargreaves's personal site">ianhargreaves.dev&nbsp;&#8599;</a>
+  </nav>
+</div></header>
+<div class="indexstrip"><div class="is-grid">
+  <span>By <a href="https://ianhargreaves.dev/">Ian Hargreaves</a> · Market intelligence · Lausanne CH</span>
+  <span>Edition 07/2026 · 35 markets · Eurostat · Monthly</span>
+</div></div>
 
 <div class="wrap">
   <nav aria-label="Market index">
