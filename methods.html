@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to read these pages · Retail Demand, Europe</title>
+<meta name="description" content="Plain-terms explanations of the machinery behind Retail Demand, Europe: calibrated ranges, bands, factor scales, the market matrix, co-movement, and the prediction registry.">
+<link rel="canonical" href="https://retaildemand.org/methods.html">
+<meta name="author" content="Ian Hargreaves">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#e7e7e3">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Retail Demand, Europe">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://retaildemand.org/methods.html">
+<meta property="og:title" content="How to read these pages · Retail Demand, Europe">
+<meta property="og:description" content="Plain-terms explanations of the machinery behind Retail Demand, Europe: calibrated ranges, bands, factor scales, the market matrix, co-movement, and the prediction registry.">
+<meta property="og:image" content="https://retaildemand.org/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Plate grammar, matching site/index.html */
+:root{
+  --ground:#e7e7e3; --plate:#ffffff; --ink:#131313; --muted:#6d6d68;
+  --grey:#c9c9c4; --acc:#2038c8; --red:#e8271e;
+  --mono:"Space Mono",ui-monospace,monospace;
+  --disp:"Inter Tight",sans-serif; --body:"Inter",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+::selection{background:var(--acc);color:#fff}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1320px;margin:0 auto;padding:0 28px}
+.gstrip{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:18px 0 12px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.gstrip b{color:var(--ink);font-weight:400}
+.gstrip a{text-decoration:none}
+.gstrip a:hover{color:var(--acc)}
+.plate{background:var(--plate);border:1.5px solid var(--ink);margin-bottom:22px}
+.mod{display:grid;grid-template-columns:repeat(12,1fr)}
+.cell{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:14px 18px;min-width:0}
+.cell.last{border-right:none}
+.cell.bot{border-bottom:none}
+.chead{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.chead b{color:var(--acc);font-weight:700;margin-right:8px}
+.c-name{grid-column:span 8;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.mkt-name{font-family:var(--disp);font-weight:800;font-size:clamp(26px,3vw,44px);letter-spacing:-.015em;line-height:1;text-transform:uppercase}
+.dek{font-size:13.5px;line-height:1.55;color:var(--muted);max-width:66ch}
+.dek b{color:var(--ink);font-weight:600}
+.c-tb{grid-column:span 4;padding:0}
+.tb{display:grid;grid-template-columns:auto 1fr}
+.tb>div{padding:7px 14px;border-bottom:1px solid var(--grey);font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center}
+.tb>div:nth-child(odd){color:var(--muted);border-right:1px solid var(--grey)}
+.tb>div:nth-last-child(-n+2){border-bottom:none}
+.c-half{grid-column:span 6}
+.xp{font-size:13.5px;line-height:1.55;color:var(--muted);margin-bottom:14px}
+.xp b{color:var(--ink);font-weight:600}
+.mlink{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;transition:background .15s,color .15s}
+.mlink:hover{background:var(--acc);color:#fff}
+.gfoot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:4px 0 10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.gfoot a{text-decoration:none}
+.gfoot a:hover{color:var(--acc)}
+.gfoot .dot{color:var(--red)}
+.gnote{padding:0 0 40px;font-family:var(--mono);font-size:9px;letter-spacing:.04em;line-height:1.7;text-transform:uppercase;color:var(--muted)}
+@media (max-width:900px){
+  .wrap{padding:0 14px}
+  .gstrip{padding:14px 0 10px}
+  .cell{grid-column:span 12 !important;border-right:none}
+  .cell.bot{border-bottom:1px solid var(--ink)}
+  .cell.bot:last-child{border-bottom:none}
+  .mkt-name{font-size:clamp(22px,5.6vw,40px)}
+  .gfoot{flex-direction:column;gap:6px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap gstrip"><span><b><a href="https://ianhargreaves.dev/">Ian Hargreaves</a></b> · Market intelligence</span><nav class="gnav" aria-label="Pages"><a href="/">Data sheet</a> · <a href="/factor-profile.html">Market matrix</a> · <a href="https://ianhargreaves.dev/" title="Decision science · Ian Hargreaves's personal project">ianhargreaves.dev &#8599;</a></nav><span>How to read these pages · Concepts, in plain terms</span></div>
+
+<div class="wrap">
+  <div class="plate mod">
+    <div class="cell c-name"><h1 class="mkt-name">How to read these pages</h1>
+      <p class="dek">Plain-terms explanations of the machinery: what a calibrated range is, how to read a band, what a factor scale does and does not claim, how the matrix positions are built, what co-movement can tell you, and how the prediction registry keeps the record honest. <b>Concepts live here.</b> Each page keeps its own exact construction and current numbers on its method plate; when the two seem to disagree, the method plate wins.</p>
+    </div>
+    <div class="cell c-tb last"><div class="tb">
+      <div>Scope</div><div>Concepts, not parameters</div>
+      <div>Numbers</div><div>Live on each page's method plate</div>
+      <div>Audience</div><div>Category &amp; market planners</div>
+      <div>Refresh</div><div>On method change · not monthly</div>
+    </div></div>
+  </div>
+
+  <div class="plate mod">
+    <div class="cell c-half bot" id="range">
+      <div class="chead"><b>01</b>Why a range, not a forecast</div>
+      <p class="xp"><b>We tested forecasting and closed it.</b> Every method we tried was beaten out of sample by the simplest possible rule: assume no change from the last published figure. That is not a fixable weakness of one model. Monthly retail volume mostly wobbles around a slow trend; a rise is typically followed by a fall; and the pattern European markets share lives entirely within the month, so there is no early signal to borrow from neighbours. When the best available prediction is &ldquo;no change&rdquo;, publishing a precise forecast would be theatre.</p>
+      <p class="xp"><b>A range is the honest product.</b> Each market's demand module starts at that market's last published print, carries its slow long-run drift forward, and draws a band around that path. The band says: given how wrong this construction has been for this market at this distance in the past, here is where the truth plausibly lands. Nothing more is claimed, because nothing more survived testing.</p>
+      <p class="xp"><b>The same recipe runs per category.</b> The category strips on each market plate use the identical construction, applied to each sub-category's own series. Nothing is borrowed from the market total: a volatile category earns a wide band, a steady one a narrow band, each from its own record.</p>
+      <a class="mlink" href="/#method">The full construction, with this month's numbers &rarr;</a>
+    </div>
+    <div class="cell c-half bot last" id="bands">
+      <div class="chead"><b>02</b>How to read a band</div>
+      <p class="xp"><b>The band is measured, not assumed.</b> We replay history: stand at each past month, project forward exactly as the live module does, and record how wrong that projection turned out at each distance. The band is the spread of those recorded misses. We assume no bell curve: if a market's errors lean one way, its band leans the same way.</p>
+      <p class="xp"><b>What &ldquo;80%&rdquo; means.</b> An 80% band should contain the eventual print about eight times in ten. We report how often it actually has, and that honest number moves with the times: a band built from calm years fails in a shock (2020 escaped everyone's bands), and a band that remembers the shock runs a little wide in calm years. We keep the full memory and say so, rather than trimming history to look precise.</p>
+      <p class="xp"><b>&ldquo;No range&rdquo; is an answer, not a gap.</b> When a series is too short to measure its own errors, too stale to anchor on, or the construction lands somewhere implausible, the module says <b>no range</b> and states the reason. A borrowed band would look more complete and would mean nothing. Expect the blanks to cluster in smaller markets and newer category series; that is the machinery refusing to guess.</p>
+    </div>
+  </div>
+
+  <div class="plate mod">
+    <div class="cell c-half bot" id="factors">
+      <div class="chead"><b>03</b>What a factor is, and is not</div>
+      <p class="xp"><b>The idea in one paragraph.</b> Dozens of price and demand series do not move independently: food and furnishings inflation rise and fall together, rents and health tariffs reprice together, tech prices drift down together. Factor analysis asks: if a small number of unseen influences were pushing many series at once, what would those influences have to look like to produce the co-movement we actually observe? The factor scales on the matrix page are the best answer for our panel.</p>
+      <p class="xp"><b>A factor is a pattern, not a thing.</b> The method sees co-movement, never causes. A factor is a covariance pattern with a name attached: the name is our reading of the pattern, chosen because it matches outside evidence, and the reading can be wrong while the pattern remains real. That is why the matrix page presents its interpretations as readings, not findings.</p>
+      <p class="xp"><b>Assuming is not finding.</b> The method assumes latent influences exist and then finds the patterns that fit best under that assumption. Good fit is not proof of existence. We treat a factor as trustworthy only as far as it is reliable (its items genuinely hang together), stable (it survives changes of window and encoding), and corroborated (it reproduces something known from independent evidence).</p>
+      <p class="xp"><b>Why only four.</b> More factors always fit better on paper, the way more excuses always fit a story better. We keep the few that clear the bar above and say plainly which of them are marginal. Anything that was not part of that estimation stays outside the solution, which is why the matrix will never label a user-chosen column as a fifth scale.</p>
+    </div>
+    <div class="cell c-half bot last" id="matrix">
+      <div class="chead"><b>04</b>How the matrix positions are built</div>
+      <p class="xp"><b>From raw series to a position, in three steps.</b> Take each series' year-on-year growth, the change against the same month a year earlier, so seasonal patterns cancel out. Trim the most extreme one percent of values, so a single crisis month cannot dominate a decade (statisticians call this winsorizing). Average what remains over a fixed multi-year window. A position is therefore a <b>long-run average, not a current state</b>: a market can sit high on a column while cooling rapidly right now.</p>
+      <p class="xp"><b>Making columns comparable.</b> Raw columns live on different natural scales, so each is re-expressed as distance from the panel median in robust units: 0 means the middle of the market panel, +1 means meaningfully above it by that column's own yardstick. Robust means the yardstick is built from medians rather than means, so one extreme market cannot stretch it. Bars are clipped at &plusmn;3 with the true value still shown.</p>
+      <p class="xp"><b>Your category column.</b> The selector on the matrix applies exactly this recipe to a retail sub-category of your choice, so its positions read on the same scale and sort the same way. It differs in one crucial respect: it was never an input to the factor estimation. It is an overlay for ranking markets by a category you care about, and it borrows none of the validation behind the four scales. That distinction is the credibility of the page, which is why the column is labelled and outlined as an overlay.</p>
+      <a class="mlink" href="/factor-profile.html">The market matrix &rarr;</a>
+    </div>
+  </div>
+
+  <div class="plate mod">
+    <div class="cell c-half bot" id="comovement">
+      <div class="chead"><b>05</b>What co-movement can and cannot tell you</div>
+      <p class="xp"><b>The measure.</b> Two markets co-move when their demand trajectories rise and fall together over the years; correlation scores that between &minus;1 and 1. It is a symmetric measure and it is silent about cause: it cannot say who leads, who follows, or whether both are pushed by something third.</p>
+      <p class="xp"><b>A spectrum, not clusters.</b> Group labels are seductive and mostly noise: when we test for natural groupings, the best split explains little and its membership does not survive resampling. What the data supports is a continuum, from markets deep in the common European cycle to a short tail that genuinely moves alone. Read tiers and tails, never precise rank positions.</p>
+      <p class="xp"><b>The 2020 problem.</b> A shock that hits every market at once reads as synchronization even between markets that share nothing. The co-movement page therefore shows every number with and without the pandemic years and only makes claims that hold in both windows. Any co-movement figure quoted without that check deserves suspicion.</p>
+      <a class="mlink" href="/comovement.html">Who moves together &rarr;</a>
+    </div>
+    <div class="cell c-half bot last" id="registry">
+      <div class="chead"><b>06</b>The registry, or how the record stays honest</div>
+      <p class="xp"><b>Logged before, scored after.</b> Every range published on the data sheet is written to a public file before the outcome exists: market, category, horizon, point, bands, anchor, edition. When the target months mature, the same code scores every row. Nothing is rewritten afterwards, so a track record can only accumulate; it cannot be edited into existence.</p>
+      <p class="xp"><b>The first print stays the record.</b> Eurostat revises its own history, sometimes substantially. Predictions are scored against the value as first recorded, not the later revision, so a revision can never quietly make past ranges look better or worse than they were on the day.</p>
+      <p class="xp"><b>Why bother.</b> Anyone can look accurate in hindsight. The registry is the difference between a track record and a story, and it is the standard we would demand of anyone else's forecast. The raw files are downloadable on the data sheet, and any competing method can be logged into the same registry and scored by the same code.</p>
+      <a class="mlink" href="/#data">The prediction registry &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap gfoot">
+  <span>&copy; 2026 <a href="https://ianhargreaves.dev/">Ian Hargreaves</a><span class="dot">.</span></span>
+  <span>Concepts only · exact constructions and current numbers live on each page's method plate</span>
+  <span><a href="/">&larr; Retail Demand, Europe · the data sheet</a></span>
+</div>
+<div class="wrap gnote">Built 16 July 2026 · This page changes when a method changes, not monthly · Plain terms are a promise: if something here is unclear, that is our defect, not yours</div>
+
+</body>
+</html>
