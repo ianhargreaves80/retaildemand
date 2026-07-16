@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How to read these pages · Retail Demand, Europe</title>
-<meta name="description" content="Plain-terms explanations of the machinery behind Retail Demand, Europe: calibrated ranges, bands, factor scales, the market matrix, co-movement, and the prediction registry.">
+<meta name="description" content="Plain-terms explanations of the machinery behind Retail Demand, Europe: calibrated ranges, bands, factor scales, the market positions, and the prediction registry.">
 <link rel="canonical" href="https://retaildemand.org/methods.html">
 <meta name="author" content="Ian Hargreaves">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -14,7 +14,7 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://retaildemand.org/methods.html">
 <meta property="og:title" content="How to read these pages · Retail Demand, Europe">
-<meta property="og:description" content="Plain-terms explanations of the machinery behind Retail Demand, Europe: calibrated ranges, bands, factor scales, the market matrix, co-movement, and the prediction registry.">
+<meta property="og:description" content="Plain-terms explanations of the machinery behind Retail Demand, Europe: calibrated ranges, bands, factor scales, the market positions, and the prediction registry.">
 <meta property="og:image" content="https://retaildemand.org/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -53,6 +53,9 @@ a{color:inherit}
 .tb>div:nth-child(odd){color:var(--muted);border-right:1px solid var(--grey)}
 .tb>div:nth-last-child(-n+2){border-bottom:none}
 .c-half{grid-column:span 6}
+.c-full{grid-column:span 12}
+.xp2{columns:2;column-gap:48px}
+.xp2 .xp{break-inside:avoid}
 .xp{font-size:13.5px;line-height:1.55;color:var(--muted);margin-bottom:14px}
 .xp b{color:var(--ink);font-weight:600}
 .mlink{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;transition:background .15s,color .15s}
@@ -69,6 +72,7 @@ a{color:inherit}
   .cell.bot{border-bottom:1px solid var(--ink)}
   .cell.bot:last-child{border-bottom:none}
   .mkt-name{font-size:clamp(22px,5.6vw,40px)}
+  .xp2{columns:1}
   .gfoot{flex-direction:column;gap:6px}
 }
 </style>
@@ -78,9 +82,8 @@ a{color:inherit}
 <header class="topbar"><div class="tb-grid">
   <div class="id"><a href="/">Retail Demand, Europe<b>.</b></a></div>
   <nav aria-label="Site">
-    <a href="/"><span class="nn">01&nbsp;/&nbsp;</span>Data sheet</a>
-    <a href="/factor-profile.html"><span class="nn">02&nbsp;/&nbsp;</span>Market matrix</a>
-    <a href="/comovement.html"><span class="nn">03&nbsp;/&nbsp;</span>Co-movement</a>
+    <a href="/"><span class="nn">01&nbsp;/&nbsp;</span>Markets</a>
+    <a href="/factor-profile.html"><span class="nn">02&nbsp;/&nbsp;</span>Positions</a>
     <a class="ext" href="https://ianhargreaves.dev/" title="Decision science · Ian Hargreaves's personal site">ianhargreaves.dev&nbsp;&#8599;</a>
   </nav>
 </div></header>
@@ -92,7 +95,7 @@ a{color:inherit}
 <div class="wrap">
   <div class="plate mod">
     <div class="cell c-name"><h1 class="mkt-name">How to read these pages</h1>
-      <p class="dek">Plain-terms explanations of the machinery: what a calibrated range is, how to read a band, what a factor scale does and does not claim, how the matrix positions are built, what co-movement can tell you, and how the prediction registry keeps the record honest. <b>Concepts live here.</b> Each page keeps its own exact construction and current numbers on its method plate; when the two seem to disagree, the method plate wins.</p>
+      <p class="dek">Plain-terms explanations of the machinery: what a calibrated range is, how to read a band, what a factor scale does and does not claim, how the market positions are built, and how the prediction registry keeps the record honest. <b>Concepts live here.</b> Each page keeps its own exact construction and current numbers on its method plate; when the two seem to disagree, the method plate wins.</p>
     </div>
     <div class="cell c-tb last"><div class="tb">
       <div>Scope</div><div>Concepts, not parameters</div>
@@ -121,33 +124,28 @@ a{color:inherit}
   <div class="plate mod">
     <div class="cell c-half bot" id="factors">
       <div class="chead"><b>03</b>What a factor is, and is not</div>
-      <p class="xp"><b>The idea in one paragraph.</b> Dozens of price and demand series do not move independently: food and furnishings inflation rise and fall together, rents and health tariffs reprice together, tech prices drift down together. Factor analysis asks: if a small number of unseen influences were pushing many series at once, what would those influences have to look like to produce the co-movement we actually observe? The factor scales on the matrix page are the best answer for our panel.</p>
-      <p class="xp"><b>A factor is a pattern, not a thing.</b> The method sees co-movement, never causes. A factor is a covariance pattern with a name attached: the name is our reading of the pattern, chosen because it matches outside evidence, and the reading can be wrong while the pattern remains real. That is why the matrix page presents its interpretations as readings, not findings.</p>
+      <p class="xp"><b>The idea in one paragraph.</b> Dozens of price and demand series do not move independently: food and furnishings inflation rise and fall together, rents and health tariffs reprice together, tech prices drift down together. Factor analysis asks: if a small number of unseen influences were pushing many series at once, what would those influences have to look like to produce the co-movement we actually observe? The factor scales on the positions page are the best answer for our panel.</p>
+      <p class="xp"><b>A factor is a pattern, not a thing.</b> The method sees co-movement, never causes. A factor is a covariance pattern with a name attached: the name is our reading of the pattern, chosen because it matches outside evidence, and the reading can be wrong while the pattern remains real. That is why the positions page presents its interpretations as readings, not findings.</p>
       <p class="xp"><b>Assuming is not finding.</b> The method assumes latent influences exist and then finds the patterns that fit best under that assumption. Good fit is not proof of existence. We treat a factor as trustworthy only as far as it is reliable (its items genuinely hang together), stable (it survives changes of window and encoding), and corroborated (it reproduces something known from independent evidence).</p>
-      <p class="xp"><b>Why only four.</b> More factors always fit better on paper, the way more excuses always fit a story better. We keep the few that clear the bar above and say plainly which of them are marginal. Anything that was not part of that estimation stays outside the solution, which is why the matrix will never label a user-chosen column as a fifth scale.</p>
+      <p class="xp"><b>Why only four.</b> More factors always fit better on paper, the way more excuses always fit a story better. We keep the few that clear the bar above and say plainly which of them are marginal. Anything that was not part of that estimation stays outside the solution, which is why the positions page will never label a user-chosen column as a fifth scale.</p>
     </div>
     <div class="cell c-half bot last" id="matrix">
-      <div class="chead"><b>04</b>How the matrix positions are built</div>
+      <div class="chead"><b>04</b>How the market positions are built</div>
       <p class="xp"><b>From raw series to a position, in three steps.</b> Take each series' year-on-year growth, the change against the same month a year earlier, so seasonal patterns cancel out. Trim the most extreme one percent of values, so a single crisis month cannot dominate a decade (statisticians call this winsorizing). Average what remains over a fixed multi-year window. A position is therefore a <b>long-run average, not a current state</b>: a market can sit high on a column while cooling rapidly right now.</p>
       <p class="xp"><b>Making columns comparable.</b> Raw columns live on different natural scales, so each is re-expressed as distance from the panel median in robust units: 0 means the middle of the market panel, +1 means meaningfully above it by that column's own yardstick. Robust means the yardstick is built from medians rather than means, so one extreme market cannot stretch it. Bars are clipped at &plusmn;3 with the true value still shown.</p>
-      <p class="xp"><b>Your category column.</b> The selector on the matrix applies exactly this recipe to a retail sub-category of your choice, so its positions read on the same scale and sort the same way. It differs in one crucial respect: it was never an input to the factor estimation. It is an overlay for ranking markets by a category you care about, and it borrows none of the validation behind the four scales. That distinction is the credibility of the page, which is why the column is labelled and outlined as an overlay.</p>
-      <a class="mlink" href="/factor-profile.html">The market matrix &rarr;</a>
+      <p class="xp"><b>Your category column.</b> The selector on the positions page applies exactly this recipe to a retail sub-category of your choice, so its positions read on the same scale and sort the same way. It differs in one crucial respect: it was never an input to the factor estimation. It is an overlay for ranking markets by a category you care about, and it borrows none of the validation behind the four scales. That distinction is the credibility of the page, which is why the column is labelled and outlined as an overlay.</p>
+      <a class="mlink" href="/factor-profile.html">Market positions &rarr;</a>
     </div>
   </div>
 
   <div class="plate mod">
-    <div class="cell c-half bot" id="comovement">
-      <div class="chead"><b>05</b>What co-movement can and cannot tell you</div>
-      <p class="xp"><b>The measure.</b> Two markets co-move when their demand trajectories rise and fall together over the years; correlation scores that between &minus;1 and 1. It is a symmetric measure and it is silent about cause: it cannot say who leads, who follows, or whether both are pushed by something third.</p>
-      <p class="xp"><b>A spectrum, not clusters.</b> Group labels are seductive and mostly noise: when we test for natural groupings, the best split explains little and its membership does not survive resampling. What the data supports is a continuum, from markets deep in the common European cycle to a short tail that genuinely moves alone. Read tiers and tails, never precise rank positions.</p>
-      <p class="xp"><b>The 2020 problem.</b> A shock that hits every market at once reads as synchronization even between markets that share nothing. The co-movement page therefore shows every number with and without the pandemic years and only makes claims that hold in both windows. Any co-movement figure quoted without that check deserves suspicion.</p>
-      <a class="mlink" href="/comovement.html">Who moves together &rarr;</a>
-    </div>
-    <div class="cell c-half bot last" id="registry">
-      <div class="chead"><b>06</b>The registry, or how the record stays honest</div>
+    <div class="cell c-full bot last" id="registry">
+      <div class="chead"><b>05</b>The registry, or how the record stays honest</div>
+      <div class="xp2">
       <p class="xp"><b>Logged before, scored after.</b> Every range published on the data sheet is written to a public file before the outcome exists: market, category, horizon, point, bands, anchor, edition. When the target months mature, the same code scores every row. Nothing is rewritten afterwards, so a track record can only accumulate; it cannot be edited into existence.</p>
       <p class="xp"><b>The first print stays the record.</b> Eurostat revises its own history, sometimes substantially. Predictions are scored against the value as first recorded, not the later revision, so a revision can never quietly make past ranges look better or worse than they were on the day.</p>
       <p class="xp"><b>Why bother.</b> Anyone can look accurate in hindsight. The registry is the difference between a track record and a story, and it is the standard we would demand of anyone else's forecast. The raw files are downloadable on the data sheet, and any competing method can be logged into the same registry and scored by the same code.</p>
+      </div>
       <a class="mlink" href="/#data">The prediction registry &rarr;</a>
     </div>
   </div>
